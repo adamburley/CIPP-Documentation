@@ -5,39 +5,143 @@ description: Interact with Microsoft 365 users.
 slug: /usingcipp/identitymanagement/users
 ---
 
-Using the users pages you can edit users, add users to groups or change their licenses, you can also create new users.
+User management.  Equivalent to and extending [Microsoft 365 admin center > Active Users](https://admin.microsoft.com/Adminportal/Home#/users).
 
-## Details
+## Overview
 
-| Field                  | Description                                          |
-| ---------------------- | ---------------------------------------------------- |
-| Created Date           | The creation date of the user.                       |
-| User Principal Name    | The User Principal Name (UPN) of the user.           |
-| Given Name             | The "First Name" of the user.                        |
-| Surname                | The "Last Name" of the user.                         |
-| Job Title              | The Job Title of the user, if entered.               |
-| Licences Assigned      | All assigned licences.                               |
-| Phone Number           | Business Number / Mobile Number of the user.         |
-| Mail Address           | Primary e-mail address of the user.                  |
-| City                   | Location of the user, if entered.                    |
-| Department             | Department of the user, if entered.                  |
-| On-Prem Sync Date/Time | If synced from on-prem, the last time sync occurred. |
-| Unique ID              | Unique ID of the selected user.                      |
+The main table provides an overview of information including display name, email address, licensing, enabled/disabled status, and if the account is AD synchronized. Behind the elipsis menu user creation date, last sync date, and user GUID are also available.
 
-## Actions
+There is an option to **Add user**.
 
-- Research Compromised Account
-- Send Multi-Factor Authentication (MFA) Push
-- Convert to Shared Mailbox
-- Block Sign-In
+## Actions (Per-User)
+
+- [👁 View user details](#view-user-details)
+- [✍️ Edit user](#edit-user)
+- [Research Compromised Account](#research-compromised-account)
+- [Create Temporary Access Password](#create-temporary-access-password)
+- [Rerequire MFA registration](#rerequire-mfa-registration)
+- [Send MFA Push](#send-mfa-push)
+- [Convert to Shared Mailbox](#convert-to-shared-mailbox)
+- [Set Out of Office](#set-out-of-office)
+- Block Sign In
 - Reset Password (Must Change)
 - Reset Password
+- Revoke all user sessions
 - Delete User
 
 :::info
 Note that clicking one of these actions will present a confirmation modal dialog.
 :::
 
+
+### View user details
+
+Displays details about the user account.
+
+- Azure AD user attributes (Names, Job Title, Address, Phone)
+- Last sign in details
+- Sign in logs
+- Conditional access details
+- Email usage
+- OneDrive usage
+- Email settings
+- Devices
+- Groups
+
+[Back to index](#actions-per-user)
+
+### Edit user
+
+Allows editing user details, same as user edit view from Microsoft 365 admin. Additionally, you can copy group membership to the target user from another active user.
+
+[Back to index](#actions-per-user)
+
+### Research Compromised Account
+
+The *Business Email Compromise Overview* retrieves common data sets needed with researching a potentially compromised account.
+
+:::info
+For more in-depth analysis, [Hawk](https://cloudforensicator.com/) is well-regarded.
+:::
+
+Data Retrieved
+
+- User devices (including first sync time)
+- Recently added email forwarding rules
+- Recently added users
+- User last logon details
+- Recent password changes
+- Mailbox permission changes
+- Application changes
+- Mailbox logons
+
+If an account appears compromised, **Remediate User** performs the following actions:
+
+- Block user signin
+- Reset user password
+- Disconnect all current sessions
+- Disable all inbox rules for the user
+
+[Back to index](#actions-per-user)
+
+### Create Temporary Access Password
+
+Create a temporary access password for a user to enroll in [passwordless for Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-passwordless).
+
+:::note
+Both passwordless authentication and the temporary access password function must be enabled on the tenant. See [AzureAD: Configure Temporary Access Pass in Azure AD to register Passwordless authentication methods](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-temporary-access-pass)
+:::
+
+[Back to index](#actions-per-user)
+
+### Rerequire MFA registration
+
+Sets user legacy MFA status to **Enabled**
+
+:::warn
+TODO AB verify exact actions this takes
+:::
+
+[Back to index](#actions-per-user)
+
+### Send MFA Push
+
+Sends an MFA approval prompt to a users registered devices. A simple way to verify functionality
+
+:::warn
+TODO AB verify exact actions this takes
+:::
+
+
+[Back to index](#actions-per-user)
+
+### Convert to Shared Mailbox
+
+Convert a mailbox to shared.
+
+:::warn
+TODO AB verify if this only does user -> shared, if it will do the reverse, if it will disable mailbox etc
+:::
+
+[Back to index](#actions-per-user)
+
+### Set Out of Office
+
+Set an out of office message for the user or shared mailbox.
+
+:::note
+Setting different internal and external auto-replies is currently not supported
+:::
+
+:::warn
+TODO AB determine exactly what is set
+:::
+
+[Back to index](#actions-per-user)
+
 ## Known Issues / Limitations
 
-<NoKnownIssues />
+* As with the Microsoft 365 admin center users view, this view does not differentiate between a standard user and a shared mailbox user.
+* *All Tenants* overview not currently supported.
+
+<OtherIssues />
