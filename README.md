@@ -1,3 +1,11 @@
+# ADAM TODOS
+
+* Feature planning page?
+* Help links from production sites
+* Add feature - set time zones for accounts / time zone standard for tenants
+* Finish research on Users page features
+* Tweak email notifications to use the time zone of the sending account, or at least specify the time is UTC.
+
 # Website
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
