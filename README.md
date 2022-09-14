@@ -5,6 +5,7 @@
 * Add feature - set time zones for accounts / time zone standard for tenants
 * Finish research on Users page features
 * Tweak email notifications to use the time zone of the sending account, or at least specify the time is UTC.
+* Add request relationship button - partner center REST API has an endpoint
 
 # Website
 
