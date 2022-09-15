@@ -7,6 +7,8 @@
 * Tweak email notifications to use the time zone of the sending account, or at least specify the time is UTC.
 * Add request relationship button - partner center REST API has an endpoint
 * https://docs.microsoft.com/en-us/partner-center/develop/verify-domain-availability
+* Some way to manage partner internal accounts - naming or flagging mechanism?
+
 
 # Website
 
