@@ -8,6 +8,7 @@
 * Add request relationship button - partner center REST API has an endpoint
 * https://docs.microsoft.com/en-us/partner-center/develop/verify-domain-availability
 * Some way to manage partner internal accounts - naming or flagging mechanism?
+* Onedrive known folder status - not a direct API - some workarounds that would require possibly direct reporting
 
 
 # Website
